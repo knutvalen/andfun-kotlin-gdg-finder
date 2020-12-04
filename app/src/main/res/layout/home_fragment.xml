@@ -36,16 +36,16 @@
                 <!-- TODO (01)  Replace the style attribute in title and subtitle TextViews
                      with textAppearance. -->
                 <TextView
-                        android:id="@+id/title"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/about_google_developer_groups"
-                        android:layout_marginTop="16dp"
-                        style="@style/TextAppearance.Title"
-                        app:layout_constraintTop_toBottomOf="@id/image"
-                        app:layout_constraintEnd_toStartOf="@+id/end_grid"
-                        app:layout_constraintStart_toStartOf="@+id/start_grid"
-                        android:fontFamily="@font/lobster_two"/>
+                    android:id="@+id/title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/lobster_two"
+                    android:text="@string/about_google_developer_groups"
+                    android:textAppearance="?textAppearanceHeadline5"
+                    app:layout_constraintEnd_toStartOf="@+id/end_grid"
+                    app:layout_constraintStart_toStartOf="@+id/start_grid"
+                    app:layout_constraintTop_toBottomOf="@id/image" />
 
                 <TextView
                         android:id="@+id/intro_text"
@@ -58,15 +58,15 @@
                         android:layout_marginTop="8dp"/>
 
                 <TextView
-                        android:id="@+id/subtitle"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/gdgs_are"
-                        android:layout_marginTop="13dp"
-                        style="@style/TextAppearance.Subtitle"
-                        app:layout_constraintStart_toEndOf="@id/start_grid"
-                        app:layout_constraintEnd_toStartOf="@id/end_grid"
-                        app:layout_constraintTop_toBottomOf="@+id/intro_text"/>
+                    android:id="@+id/subtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:text="@string/gdgs_are"
+                    android:textAppearance="?textAppearanceHeadline6"
+                    app:layout_constraintEnd_toStartOf="@id/end_grid"
+                    app:layout_constraintStart_toEndOf="@id/start_grid"
+                    app:layout_constraintTop_toBottomOf="@+id/intro_text" />
 
                 <TextView
                         android:id="@+id/description"
