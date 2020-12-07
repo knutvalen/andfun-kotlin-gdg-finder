@@ -15,6 +15,7 @@ import com.example.android.gdgfinder.databinding.FragmentGdgListBinding
 import com.google.android.gms.location.*
 import com.google.android.material.snackbar.Snackbar
 import com.example.android.gdgfinder.R
+import com.google.android.material.chip.Chip
 
 private const val LOCATION_PERMISSION_REQUEST = 1
 
@@ -69,6 +70,33 @@ class GdgListFragment : Fragment() {
         // TODO (07) Call chipGroup.removeAllViews() to remove any views already in chipGroup.
 
         // TODO (08)  Iterate through the list of children and add each chip to chipGroup.
+
+        viewModel.regionList.observe(viewLifecycleOwner, object: Observer<List<String>> {
+            override fun onChanged(list: List<String>?) {
+                list ?: return
+
+                val chipGroup = binding.regionList
+                val inflator = LayoutInflater.from(chipGroup.context)
+
+                val children = list.map { regionName ->
+                    val chip = inflator.inflate(R.layout.region, chipGroup, false) as Chip
+                    chip.text = regionName
+                    chip.tag = regionName
+
+                    chip.setOnCheckedChangeListener { button, isChecked ->
+                        viewModel.onFilterChanged(button.tag as String, isChecked)
+                    }
+
+                    chip
+                }
+
+                chipGroup.removeAllViews()
+
+                for (chip in children) {
+                    chipGroup.addView(chip)
+                }
+            }
+        })
 
         setHasOptionsMenu(true)
         return binding.root
